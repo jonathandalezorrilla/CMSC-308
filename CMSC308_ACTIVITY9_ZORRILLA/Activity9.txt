@@ -1,0 +1,57 @@
+using System;
+using System.Collections.Generic;
+
+class Hash
+{
+
+    public static void Main()
+    {
+        HashSet<int> mySet1 = new HashSet<int>() { 1, 2, 3, 4, 5 };
+
+        Console.WriteLine("HashSet1:");
+        foreach (int val in mySet1)
+        {
+            Console.WriteLine(val);
+        }
+
+
+        HashSet<int> mySet2 = new HashSet<int>() { 2, 4, 6, 8, 10 };
+
+        Console.WriteLine("HashSet2:");
+        foreach (int val in mySet2)
+        {
+            Console.WriteLine(val);
+        }
+
+        HashSet<int> uni = new HashSet<int>(mySet1);
+
+        uni.UnionWith(mySet2);
+        Console.WriteLine("Union of HashSets 1 & 2: ");
+        foreach (int i in uni)
+        {
+            Console.WriteLine(i);
+        }
+        HashSet<int> intersect = new HashSet<int>(mySet1);
+
+        intersect.IntersectWith(mySet2);
+        Console.WriteLine("Intersection of HashSets 1 & 2:");
+        foreach (int i in intersect)
+        {
+            Console.WriteLine(i);
+        }
+        HashSet<int> diff = new HashSet<int>(mySet1);
+        diff.ExceptWith(mySet2);
+        Console.WriteLine("Difference of HashSets 1 & 2");
+        foreach (int i in diff)
+        {
+            Console.WriteLine(i);
+        }
+        HashSet<int> dif = new HashSet<int>(mySet2);
+        dif.ExceptWith(mySet1);
+        foreach (int i in dif)
+        {
+            Console.WriteLine(i);
+        }
+
+    }
+}
